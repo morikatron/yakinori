@@ -8,6 +8,12 @@ Ubuntu18.04
 python==3.8.16
 ```
 
+## Dockerを使う場合
+```
+$ docker image build -t yakinori_image .
+```
+
+
 ## Install Mecab（Mecabのインストール）
 ### For Ubuntu（Ubuntuの場合）
 ```
@@ -19,7 +25,7 @@ $ sudo apt install mecab libmecab-dev mecab-ipadic-utf8
 ```
 $ git clone --depth 1 https://github.com/neologd/mecab-unidic-neologd.git
 $ cd mecab-unidic-neologd
-$ sudo ./install-mecab-unidic-neologd -n -y
+$ sudo ./bin/install-mecab-unidic-neologd -n -y
 
 # show installed unidic dictionary path
 $ echo `mecab-config --dicdir`"/mecab-unidic-neologd"

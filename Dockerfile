@@ -1,23 +1,31 @@
 # ベースとなるイメージを指定（この例では Python 3.8）
-FROM python:3.8
+FROM python:3.8-slim-buster
 
 # ワーキングディレクトリを設定
 WORKDIR /app
 
-# mecabとその依存関係をインストール
-RUN apt-get update \
-    && apt-get install -y \
+
+RUN apt-get -y update && \
+    apt-get -y upgrade && \
+    apt-get install -y \
+    build-essential \
     mecab \
     libmecab-dev \
     mecab-ipadic-utf8 \
-    git 
+    git \
+    curl \
+    xz-utils \
+    make \
+    file \
+    unzip \
+    sudo
 
 # mecab-unidic-neologdをクローンし、インストール
 RUN git clone --depth 1 https://github.com/neologd/mecab-unidic-neologd.git \
     && cd mecab-unidic-neologd \
-    && ./install-mecab-unidic-neologd -n -y \
-    && echo dicdir = `mecab-config --dicdir`"/mecab-unidic-neologd">/etc/mecabrc && \
-    && sudo cp /etc/mecabrc /usr/local/etc && \
+    && ./bin/install-mecab-unidic-neologd -n -y \
+    && echo dicdir = `mecab-config --dicdir`"/mecab-unidic-neologd">/etc/mecabrc  \
+    && sudo cp /etc/mecabrc /usr/local/etc \
     && cd .. \
     && rm -rf mecab-unidic-neologd
 
