@@ -37,5 +37,5 @@ class Yakinori:
         katakana_sentence = self.get_katakana_sentence(parsed_list)
         roma_sentence = jaconv.kata2alphabet(katakana_sentence)
         roma_sentence = jaconv.z2h(roma_sentence)
-        roma_sentence = roma_sentence.maketrans({"、", ",", "。", "."})
+        roma_sentence = roma_sentence.translate(str.maketrans({"、": ",", "。": "."}))
         return roma_sentence
