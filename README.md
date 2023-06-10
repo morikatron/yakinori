@@ -28,7 +28,7 @@ $ echo `mecab-config --dicdir`"/mecab-unidic-neologd"
 
 ## Install yakinori（yakinoriのインストール）
 ```
-$ pip install git+https://github.com/morikatron/yakinori.git
+$ pip install git+ssh://git@github.com/morikatron/yakinori.git
 $ pip install yakinori # TODO:公開したらこちらにする
 ```
 
