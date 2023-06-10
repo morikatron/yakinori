@@ -1,1 +1,1 @@
-from yakinori import *
+from yakinori.yakinori import *
