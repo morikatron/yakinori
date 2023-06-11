@@ -57,9 +57,6 @@ $ docker run -it --name yakinori yakinori /bin/bash
 ```python
 >>> from yakinori import Yakinori
 >>> yakinori = Yakinori()
-# example:
-# >>> yakinori = Yakinori(dic_path="/usr/local/lib/mecab/dic/mecab-unidic-neologd")
-
 >>> sentence = "幽☆遊☆白書は最高の漫画です"
 >>> parsed_list = yakinori.get_parsed_list(sentence)
 ```
