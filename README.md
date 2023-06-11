@@ -45,7 +45,7 @@ $ sudo cp /etc/mecabrc /usr/local/etc
 ```
 $ pip install git+ssh://git@github.com/morikatron/yakinori.git
 # $ pip install yakinori # TODO:PyPIで公開したらこちらにする
-
+```
 ### Use Docker（Dockerを使う場合）
 ```
 $ docker image build --network host -t yakinori .
