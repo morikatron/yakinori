@@ -44,53 +44,59 @@ $ sudo cp /etc/mecabrc /usr/local/etc
 #### Install yakinori（yakinoriのインストール）
 ```
 $ pip install git+ssh://git@github.com/morikatron/yakinori.git
-$ pip install yakinori # TODO:PyPIで公開したらこちらにする
+# $ pip install yakinori # TODO:PyPIで公開したらこちらにする
+
+### Use Docker（Dockerを使う場合）
+```
+$ docker image build --network host -t yakinori .
+$ docker run -it --name yakinori yakinori /bin/bash
+# TODO: docker hubで公開したらこちらにする
 ```
 
 # How to use（使い方）
 ```python
-from yakinori import Yakinori
-yakinori = Yakinori(dic_path="path/to/mecab-unidic-neologd")
+>>> from yakinori import Yakinori
+>>> yakinori = Yakinori()
 # example:
-# yakinori = Yakinori(dic_path="/usr/local/lib/mecab/dic/mecab-unidic-neologd")
+# >>> yakinori = Yakinori(dic_path="/usr/local/lib/mecab/dic/mecab-unidic-neologd")
 
-sentence = "幽☆遊☆白書は最高の漫画です"
-parsed_list = yakinori.get_parsed_list(sentence)
+>>> sentence = "幽☆遊☆白書は最高の漫画です"
+>>> parsed_list = yakinori.get_parsed_list(sentence)
 ```
 
 ## Get Reading（読みを取得する）
 ```python
 # convert to hiragana（平仮名に変換）
-hiragana_sentence = yakinori.get_hiragana_sentence(parsed_list)
-print(hiragana_sentence)
-> ゆうゆうはくしょはさいこうのまんがです
+>>> hiragana_sentence = yakinori.get_hiragana_sentence(parsed_list)
+>>> print(hiragana_sentence)
+ゆうゆうはくしょはさいこうのまんがです
 
 # convert to katakana（カタカナに変換）
-katakana_sentence = yakinori.get_katakana_sentence(parsed_list)
-print(katakana_sentence)
-> ユウユウハクショハサイコウノマンガデス
+>>> katakana_sentence = yakinori.get_katakana_sentence(parsed_list)
+>>> print(katakana_sentence)
+ユウユウハクショハサイコウノマンガデス
 
 # convert to Latin alphabet（ローマ字に変換）
-roma_sentence = yakinori.get_roma_sentence(parsed_list)
-print(roma_sentence)
-> yuuyuuhakushohasaikounomangadesu
+>>> roma_sentence = yakinori.get_roma_sentence(parsed_list)
+>>> print(roma_sentence)
+yuuyuuhakushohasaikounomangadesu
 ```
 
 ## Get Pronunciation（発音を取得する）
 ```python
 # convert to hiragana（平仮名に変換）
-hiragana_sentence = yakinori.get_hiragana_sentence(parsed_list, is_hatsuon=True)
-print(hiragana_sentence)
-> ゆーゆーはくしょわさいこーのまんがです
+>>> hiragana_sentence = yakinori.get_hiragana_sentence(parsed_list, is_hatsuon=True)
+>>> print(hiragana_sentence)
+ゆーゆーはくしょわさいこーのまんがです
 
 # convert to katakana（カタカナに変換）
-katakana_sentence = yakinori.get_katakana_sentence(parsed_list, is_hatsuon=True)
-print(katakana_sentence)
-> ユーユーハクショワサイコーノマンガデス
+>>> katakana_sentence = yakinori.get_katakana_sentence(parsed_list, is_hatsuon=True)
+>>> print(katakana_sentence)
+ユーユーハクショワサイコーノマンガデス
 
 # convert to Latin alphabet（ローマ字に変換）
-roma_sentence = yakinori.get_roma_sentence(parsed_list, is_hatsuon=True)
-print(roma_sentence)
-> yuｰyuｰhakushowasaikoｰnomangadesu
+>>> roma_sentence = yakinori.get_roma_sentence(parsed_list, is_hatsuon=True)
+>>> print(roma_sentence)
+yuｰyuｰhakushowasaikoｰnomangadesu
 ```
 
