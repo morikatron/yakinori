@@ -34,6 +34,11 @@ $ sudo ./bin/install-mecab-unidic-neologd -n -y
 # show installed unidic dictionary path
 $ echo `mecab-config --dicdir`"/mecab-unidic-neologd"
 > /usr/local/lib/mecab/dic/mecab-unidic-neologd
+
+# If you want to make mecab-unidic-neologd as defalut dictionary, run commands below.（mecab-unidic-neologdをMecabのデフォルト辞書にしたい時）
+$ echo "dicdir = `mecab-config --dicdir`/mecab-unidic-neologd" | sudo tee /etc/mecabrc
+$ sudo cp /etc/mecabrc /usr/local/etc
+
 ```
 
 #### Install yakinori（yakinoriのインストール）
