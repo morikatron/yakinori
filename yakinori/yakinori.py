@@ -7,7 +7,8 @@ import re
 import MeCab
 import jaconv
 
-re_kanji = re.compile(r"^[\u4E00-\u9FFF]+$")
+re_full_kanji = re.compile(r"^[\u4E00-\u9FFF]+$")
+re_head_kanji = re.compile(r"^(?P<kanji>[\u4E00-\u9FFF])(?P<kana>.+?)")
 re_katakana = re.compile(r"^[\u30A0-\u30FF]+$")
 
 
@@ -52,12 +53,16 @@ class Yakinori:
             else:
                 kana = mrph_result[1]
                 if not is_hatsuon:
-                    if re_kanji.match(mrph_result[0]):
+                    matched_head_kanji = re_head_kanji.match(mrph_result[0])
+                    if re_full_kanji.match(mrph_result[0]):
                         kana = jaconv.hira2kata(mrph_result[2])
                     elif re_katakana.match(jaconv.hira2kata(mrph_result[0])):
                         kana = jaconv.hira2kata(mrph_result[0])
                     elif (len(mrph_result) > 4) and (mrph_result[4][:7] == "名詞-固有名詞"):
                         kana = mrph_result[2]
+                    elif matched_head_kanji:
+                        __tail_kana = matched_head_kanji.group("kana")
+                        kana = jaconv.hira2kata(mrph_result[2][:-len(__tail_kana)]) + jaconv.hira2kata(__tail_kana)
                     elif jaconv.hira2kata(mrph_result[0]) == mrph_result[2]:
                         kana = jaconv.hira2kata(mrph_result[0])
             katakana_sentence += kana
