@@ -52,7 +52,7 @@ class Yakinori:
                 kana = mrph_result[1]
                 if not is_hatsuon:
                     if not re_kanji.search(mrph_result[0]):
-                        kana = mrph_result[0]
+                        kana = jaconv.hira2kata(mrph_result[0])
                     elif (len(mrph_result) > 4) and (mrph_result[4][:7] == "名詞-固有名詞"):
                         kana = mrph_result[2]
                     elif jaconv.hira2kata(mrph_result[0]) == mrph_result[2]:
