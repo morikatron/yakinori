@@ -7,7 +7,7 @@ def _requires_from_file(filename):
 
 setup(
     name='yakinori',
-    version='0.1.4',
+    version='0.1.7',
     url='https://github.com/morikatron/yakinori',
     author='Hikaru Yamada',
     author_email='hikaru.yamada@morikatron.co.jp',
