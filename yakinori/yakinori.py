@@ -36,17 +36,21 @@ class Yakinori:
         Returns:
             str: katakana sentence
         """
-        yomi_index = 0 if is_hatsuon else 1
         katakana_sentence = ""
         for mrph_result in parsed_list:
             if mrph_result[0] in ("EOS"):
                 continue
             elif len(mrph_result) == 1:
                 kana = mrph_result[0]
-            elif mrph_result[yomi_index + 1] == "":
+            elif mrph_result[1] == "":
                 kana = mrph_result[0]
             else:
-                kana = mrph_result[yomi_index + 1]
+                kana = mrph_result[1]
+                if not is_hatsuon:
+                    if (len(mrph_result) > 4) and (mrph_result[4][:7] == "名詞-固有名詞"):
+                        kana = mrph_result[2]
+                    elif jaconv.hira2kata(mrph_result[0]) == mrph_result[2]:
+                        kana = jaconv.hira2kata(mrph_result[0])
             katakana_sentence += kana
         return katakana_sentence
 
