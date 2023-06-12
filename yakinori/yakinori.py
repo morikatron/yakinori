@@ -53,8 +53,6 @@ class Yakinori:
             else:
                 kana = mrph_result[1]
                 if not is_hatsuon:
-                    # import ipdb
-                    # ipdb.set_trace()
                     matched_head_kanji = re_head_kanji.match(mrph_result[0])
                     if re_full_kanji.match(mrph_result[0]):
                         kana = jaconv.hira2kata(mrph_result[2])
