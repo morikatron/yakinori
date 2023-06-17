@@ -1,6 +1,6 @@
 # yakinori
-Japanese REAMED is here.
- TODO:公開されたREADME_jp.mdのURLを貼る
+Japanese REAMED is here.  
+https://github.com/morikatron/yakinori/blob/main/README_ja.md
 
 Japanese Converter Kanji to Hiragana, Katakana, Latin alphabet.  
 
@@ -21,13 +21,13 @@ There are two options to install.
 ### Your Own Environment
 #### For Ubuntu
 ##### Install Mecab
-```
+```bash
 $ sudo apt update
 $ sudo apt install mecab libmecab-dev mecab-ipadic-utf8
 ```
 
 ##### Install mecab-unidic-NEologd
-```
+```bash
 $ git clone --depth 1 https://github.com/neologd/mecab-unidic-neologd.git
 $ cd mecab-unidic-neologd
 $ sudo ./bin/install-mecab-unidic-neologd -n -y
@@ -43,23 +43,20 @@ $ sudo cp /etc/mecabrc /usr/local/etc
 ```
 
 ##### Install yakinori
-```
-$ pip install git+ssh://git@github.com/morikatron/yakinori.git
-# $ pip install yakinori # TODO:PyPIで公開したらこちらにする
+```bash
+$ pip install yakinori
 ```
 
 ##### You can update the recent mecab-unidic-NEologd
-```
+```bash
 $ sudo ./bin/install-mecab-unidic-neologd -n -y
 $ echo "dicdir = `mecab-config --dicdir`/mecab-unidic-neologd" | sudo tee /etc/mecabrc
 $ sudo cp /etc/mecabrc /usr/local/etc
 ```
 
 #### Use Docker
-```
-$ docker image build --network host -t yakinori .
-$ docker run -it --name yakinori yakinori /bin/bash
-# TODO: docker hubで公開したらこちらにする
+```bash
+$ docker pull yakinori
 ```
 
 ## How to use
