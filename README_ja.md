@@ -3,7 +3,7 @@
 
 mecab-unidic-NEologdに準じた日本語の文章の読みと発音を取得することができます。
 
-ブログ記事: TODO:公開されたブログ記事のURLを貼る
+ブログ記事: https://tech.morikatron.ai/entry/yakinori_kanji2kana_latin
 
 ## テスト環境
 ```
@@ -20,13 +20,13 @@ python==3.8.16
 ### 環境に合わせてインストールする場合
 #### Ubuntuの場合
 ##### Mecabのインストール
-```
+```bash
 $ sudo apt update
 $ sudo apt install mecab libmecab-dev mecab-ipadic-utf8
 ```
 
 ##### mecab-unidic-NEologdのインストール
-```
+```bash
 $ git clone --depth 1 https://github.com/neologd/mecab-unidic-neologd.git
 $ cd mecab-unidic-neologd
 $ sudo ./bin/install-mecab-unidic-neologd -n -y
@@ -42,23 +42,20 @@ $ sudo cp /etc/mecabrc /usr/local/etc
 ```
 
 ##### yakinoriのインストール
-```
-$ pip install git+ssh://git@github.com/morikatron/yakinori.git
-# $ pip install yakinori # TODO:PyPIで公開したらこちらにする
+```bash
+$ pip install yakinori
 ```
 
 ##### 最新のmecab-unidic-NEologdに更新したい場合
-```
+```bash
 $ sudo ./bin/install-mecab-unidic-neologd -n -y
 $ echo "dicdir = `mecab-config --dicdir`/mecab-unidic-neologd" | sudo tee /etc/mecabrc
 $ sudo cp /etc/mecabrc /usr/local/etc
 ```
 
 #### Dockerを使う場合
-```
-$ docker image build --network host -t yakinori .
-$ docker run -it --name yakinori yakinori /bin/bash
-# TODO: docker hubで公開したらこちらにする
+```bash
+$ docker pull yakinori
 ```
 
 ## 使い方
