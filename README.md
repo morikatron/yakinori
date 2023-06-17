@@ -56,7 +56,7 @@ $ sudo cp /etc/mecabrc /usr/local/etc
 
 #### Use Docker
 ```bash
-$ docker pull yakinori
+$ docker pull morikayamada/yakinori
 ```
 
 ## How to use
