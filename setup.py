@@ -12,7 +12,7 @@ long_description_content_type = 'text/markdown'
 
 setup(
     name='yakinori',
-    version='0.1.1',
+    version='0.1.2',
     url='https://github.com/morikatron/yakinori',
     author='Hikaru Yamada',
     author_email='hikaru.yamada@morikatron.co.jp',
