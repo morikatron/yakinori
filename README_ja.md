@@ -122,3 +122,8 @@ yuuyuuhakushohasaikounomangadesu
 yuｰyuｰhakushowasaikoｰnomangadesu
 ```
 
+## ライセンス
+- [yakinori](https://github.com/morikatron/yakinori/blob/main/LICENSE): MIT
+- [jaconv](https://github.com/ikegami-yukino/jaconv/blob/master/LICENSE): MIT
+- [mecab-unidic-NEologd](https://github.com/neologd/mecab-unidic-neologd/blob/master/COPYING): Apache License, Version 2.0 
+- [mecab-python3](https://github.com/SamuraiT/mecab-python3/blob/master/COPYING): BSD License
