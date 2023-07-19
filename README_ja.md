@@ -3,7 +3,7 @@
 
 mecab-unidic-NEologdに準じた日本語の文章の読みと発音を取得することができます。
 
-ブログ記事: https://tech.morikatron.ai/entry/yakinori_kanji2kana_latin
+ブログ記事: https://tech.morikatron.ai/entry/yakinori_kanji2kana_alphabet
 
 ## テスト環境
 ```
